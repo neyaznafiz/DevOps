@@ -1,0 +1,51 @@
+https://github.com/mklement0/n-install
+
+node -v
+npm --version
+npm i -g yarn
+
+yarn create react-app react-app
+
+mkdir express-app
+cd express-app
+yarn init -y
+// index.js
+https://expressjs.com/en/starter/hello-world.html
+node index.js
+package.json -> 
+
+"scripts": {
+    "start": "node index.js"
+}
+
+yarn start
+
+npm i -g pm2
+pm2 start yarn --name react-app -- start
+pm2 start yarn --name express-app -- start
+pm2 start index.js --name express-app
+
+ecosystem.config.js
+
+module.exports = {
+  apps: [
+    {
+      name: "express-app",
+      script: "yarn",
+      args: "start",
+      cwd: "./express-app",
+    },
+    {
+      name: "react-app",
+      script: "yarn",
+      args: "start",
+      cwd: "./react-app",
+    },
+  ],
+};
+
+pm2 start ecosystem.config.js
+pm2 logs
+pm2 logs express-app
+pm2 stop express-app
+https://pm2.keymetrics.io/
