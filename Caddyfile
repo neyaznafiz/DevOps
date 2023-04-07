@@ -4,6 +4,11 @@
 }
 
 
-https://localhost:8443 {
+https://react.localhost:8443 {
  reverse_proxy : http://localhost:3000
+}
+
+
+https://express.localhost:8443 {
+ reverse_proxy : http://localhost:5000
 }
