@@ -3,8 +3,7 @@
     https_port 8443
 }
 
-localhost:8443 {
- respond "hello world from caddy file"
+
+https://localhost:8443 {
+ reverse_proxy : http://localhost:3000
 }
-
-
