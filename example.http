@@ -1,5 +1,5 @@
 ###
-GET https://react.localhost:8443
+GET https://react.localhost
 
 ###
-GET https://express.localhost:8443
+GET https://express.localhost
