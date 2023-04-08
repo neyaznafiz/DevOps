@@ -1,20 +1,18 @@
-
 main.localhost {
-    tls local.crt local.key
     reverse_proxy : http://localhost:3000
 }
-another.localhost {
-     reverse_proxy : http://localhost:5000
-}
 
+another.localhost {
+    reverse_proxy http://localhost:5000
+}
 
 localhost {
     handle /another {
         uri strip_prefix another
-        reverse_proxy : http://localhost:3000
+        reverse_proxy http://localhost:5000
     }
 
-    handle /* {
-        reverse_proxy : http://localhost:5000
+     handle /* {
+        reverse_proxy : http://localhost:3000
     }
 }

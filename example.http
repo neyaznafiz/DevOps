@@ -8,7 +8,8 @@ GET https://localhost/another
 
 ###
 #MAIN APP
-
+GET https://main.localhost
 
 ###
 #ANOTHER APP
+GET https://another.localhost
