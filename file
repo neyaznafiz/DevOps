@@ -1,0 +1,43 @@
+1..................................
+caddyfile
+
+{
+    http_port 8080
+    https_port 8443
+}
+
+
+https://react.localhost:8443 {
+ reverse_proxy : http://localhost:3000
+}
+
+
+https://express.localhost:8443 {
+ reverse_proxy : http://localhost:5000
+}
+
+example.http
+###
+GET https://react.localhost:8443
+
+###
+GET https://express.localhost:8443
+
+-------------------------------------
+2------------------
+
+https://react.localhost {
+ reverse_proxy : http://localhost:3000
+}
+
+
+https://express.localhost {
+ reverse_proxy : http://localhost:5000
+}
+
+--
+###
+GET https://react.localhost
+
+###
+GET https://express.localhost
