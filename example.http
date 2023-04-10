@@ -1,15 +1,8 @@
 ###
-#MAIN APP
-GET https://localhost
+GET https://react.localhost
 
 ###
-#ANOTHER APP
-GET https://localhost/another
+GET https://react.localhost/api
 
 ###
-#MAIN APP
-GET https://main.localhost
-
-###
-#ANOTHER APP
-GET https://another.localhost
+GET https://express.localhost

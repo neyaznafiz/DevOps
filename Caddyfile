@@ -1,18 +1,35 @@
-main.localhost {
-    reverse_proxy : http://localhost:3000
-}
-
-another.localhost {
-    reverse_proxy http://localhost:5000
-}
-
+# for docker
 localhost {
-    handle /another {
-        uri strip_prefix another
-        reverse_proxy http://localhost:5000
-    }
-
-     handle /* {
-        reverse_proxy : http://localhost:3000
-    }
+    tls /certs/local.crt /certs/local.key
+    respond "hello world"
 }
+
+
+# for local 
+
+# # for react app
+# react.localhost {
+#     tls local.crt local.key  
+
+#     handle /api {
+#         uri strip_prefix api
+#         reverse_proxy http://localhost:5000
+#     }
+
+#     reverse_proxy http://localhost:3000
+# }
+
+# # for express app
+# express.localhost {
+#     handle /5000 {
+#         uri strip_prefix 5000
+#         reverse_proxy http://localhost:5000
+#     }
+
+#     handle /5001 {
+#         uri strip_prefix 5001
+#         reverse_proxy http://localhost:5000
+#     }
+
+#     reverse_proxy http://localhost:5000
+# }
