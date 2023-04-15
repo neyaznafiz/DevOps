@@ -2,6 +2,16 @@ version: "3"
 
 services:
   express:
-    build: .
+    # for docker file
+    build:
+     context: .
+     args:
+      - REACT_APP_BACKEND_API=http://example.com/api
     ports:
       - 3000:5000
+
+    # for the CMD/command or runtime
+    env_file:
+      - .env
+    environment:
+      - DB_USERNAME=$DB_USERNAME
